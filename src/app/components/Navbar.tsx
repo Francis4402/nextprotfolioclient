@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import logo from "../assets/icons/logo.svg"
+
 
 const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="container">
             <div className="justify-between flex items-center md:text-lg text-white text-base md:py-10 py-6 md:px-0 px-5">
                 <Link href={'/'} className="flex items-center gap-2">
-                    <Image src={logo} alt="logo" className='w-9 h-9 object-contain' />
+                    <Image src={'/icons/logo.svg'} alt="logo" width={50} height={50} />
                     <p className='text-white text-[18px] font-bold cursor-pointer flex'>
                         Francis &nbsp;
                         <span className='sm:block hidden'>| Portfolio</span>
