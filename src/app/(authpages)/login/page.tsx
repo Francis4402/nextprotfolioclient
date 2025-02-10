@@ -2,18 +2,38 @@
 
 import { signIn } from "next-auth/react";
 import Link from "next/link"
-import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "@/app/schema/userSchema";
+import { useRouter } from "next/navigation";
+import loginUser from "@/app/utls/actions/loginUser";
+import toast from "react-hot-toast";
+import { z } from "zod";
 
+
+
+export type loginData = z.infer<typeof loginSchema>;
 
 const Login = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {register, handleSubmit, formState: {errors}} = useForm<loginData>({
+    resolver: zodResolver(loginSchema),
+  });
 
-  const handlelogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(email, password);
+  const router = useRouter();
+
+  const onSubmit = async (data: loginData) => {
+    try {
+      const res = await loginUser(data);
+      if (res.success) {
+        toast.success("Login successful");
+        localStorage.setItem('accessToken', res.accessToken)
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -25,43 +45,44 @@ const Login = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form onClick={handlelogin} className="space-y-6">
-            <div>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div>
               <label htmlFor="email" className="block text-sm/6 font-medium text-gray-400">
                 Email address
               </label>
               <div className="mt-2">
                 <input
+                  {...register("email")}
                   id="email"
                   name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   required
-                  autoComplete="email"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  placeholder='email'
+                  className="block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                )}
               </div>
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm/6 font-medium text-gray-400">
-                  Password
-                </label>
-
-              </div>
+              <label htmlFor="password" className="block text-sm/6 font-medium text-gray-400">
+                Password
+              </label>
               <div className="mt-2">
                 <input
+                  {...register("password")}
                   id="password"
                   name="password"
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
                   required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  placeholder='password'
+                  className="block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.password && (
+                  <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>
+                )}
               </div>
             </div>
 
@@ -82,10 +103,18 @@ const Login = () => {
             </Link>
           </p>
 
-          <div className="bg-gray-800 hover:bg-gray-700 duration-200 rounded-full w-fit p-2" onClick={() => signIn("github", {
-            callbackUrl: "http://localhost:3000"
-          })}>
-            <FaGithub size={40}/>
+          <div className="flex justify-center items-center gap-5 my-5">
+            <div className="bg-gray-800 hover:bg-gray-700 duration-200 rounded-full w-fit p-2" onClick={() => signIn("github", {
+              callbackUrl: "http://localhost:3000"
+            })}>
+              <FaGithub size={40}/>
+            </div>
+
+            <div className="bg-gray-800 hover:bg-gray-700 duration-200 rounded-full w-fit p-2" onClick={() => signIn("google", {
+              callbackUrl: "http://localhost:3000"
+            })}>
+              <FaGoogle size={40}/>
+            </div>
           </div>
         </div>
     </div>
