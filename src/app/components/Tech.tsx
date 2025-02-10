@@ -45,7 +45,7 @@ const RoundImages = ({tec, index}: any) => {
 
 const Tech = () => {
   return (
-    <div className="justify-center flex">
+    <div className="justify-center flex my-20">
         <div className="container">
           <div className="flex flex-wrap justify-center gap-10 my-20">
             {

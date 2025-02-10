@@ -1,7 +1,6 @@
 "use client"
 
 import { StaticImageData } from 'next/image';
-import React from 'react'
 import 'react-vertical-timeline-component/style.min.css';
 import {motion} from "framer-motion";
 import { textVariant } from '../utls/motion';
@@ -22,7 +21,7 @@ const Experience = () => {
 
   return (
     <>
-        <motion.div variants={textVariant(0)}>
+        <motion.div variants={textVariant(0)} className='mt-36'>
             <p className={`${styles.sectionSubText} text-center`}>
                 What I have done so far
             </p>

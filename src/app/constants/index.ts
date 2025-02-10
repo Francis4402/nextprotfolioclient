@@ -122,4 +122,143 @@ const technologies = [
     }
   ];
 
-export {experiences, technologies};
+  const projects = [
+    {
+      name: "Brand-Shop",
+      description: "Electronics Store Where Users Can add new products, update products and delete products, login system with firebase.",
+      tags: [
+        {
+          name: "daisyUI",
+          color: "pink-text-gradient"
+        },
+        {
+          name: "ReactJS",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "Firebase",
+          color: "green-text-gradient"
+        },
+        {
+          name: "NodeJS",
+          color: "orange-text-gradient"
+        },
+        {
+          name: "MongoDB",
+          color: "green-text-gradient"
+        }
+      ],
+      image: html,
+      source_code_link: "https://ecomercestore-8b8da.web.app/",
+    },
+    {
+      name: "Online-Group-Study",
+      description: "Post and Rating Platform for assignment where user can post their assignment and delete their assignment.Other user can give number to the assignment. Login system with firebase.",
+      tags: [
+        {
+          name: "daisyUI",
+          color: "pink-text-gradient"
+        },
+        {
+          name: "Framer-Motion",
+          color: "green-text-gradient"
+        },
+        {
+          name: "ReactJS",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "Firebase",
+          color: "green-text-gradient"
+        },
+        {
+          name: "NodeJS",
+          color: "orange-text-gradient"
+        },
+        {
+          name: "MongoDB",
+          color: "green-text-gradient"
+        }
+      ],
+      image: css,
+      source_code_link: "https://onliupstudy.web.app/",
+    },
+    {
+      name: "Thread-Talk",
+      description: "Post and Rating Platform for assignment where user can post and delete their post.Other user can give vote to the post. Login system with firebase. There is admin User who has controls for this website. Only Admin can post announcement. User can search posts by tags.",
+      tags: [
+        {
+          name: "daisyUI",
+          color: "pink-text-gradient"
+        },
+        {
+          name: "Framer-Motion",
+          color: "green-text-gradient"
+        },
+        {
+          name: "ReactJS",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "Firebase",
+          color: "green-text-gradient"
+        },
+        {
+          name: "NodeJS",
+          color: "orange-text-gradient"
+        },
+        {
+          name: "MongoDB",
+          color: "green-text-gradient"
+        }
+      ],
+      image: javascript,
+      source_code_link: "https://threadchat-f5e07.web.app/",
+    },
+    {
+      name: "Data-Finance",
+      description: "Simple Data-Finance React website Frontend",
+      tags: [
+        {
+          name: "Framer-Motion",
+          color: "orange-text-gradient"
+        },
+        {
+          name: "React",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "Javascript",
+          color: "green-pink-gradient"
+        }
+      ],
+      image: figma,
+      source_code_link: "https://francism4402-b28587.netlify.app/",
+    },
+    {
+      name: "GameEvent",
+      description: "Simple Game Event website With Login Firebase.",
+      tags: [
+        {
+          name: "daisyUI",
+          color: "pink-text-gradient"
+        },
+        {
+          name: "ReactJS",
+          color: "blue-text-gradient"
+        },
+        {
+          name: "Firebase",
+          color: "green-text-gradient"
+        },
+        {
+          name: "AOS",
+          color: "orange-text-gradient"
+        }
+      ],
+      image: javascript,
+      source_code_link: "https://gameevent-19abd.web.app/",
+    },
+  ];
+
+export {experiences, technologies, projects};
