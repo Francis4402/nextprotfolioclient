@@ -1,8 +1,8 @@
 
-import ProjectCard from "@/app/dashboard/components/ProjectCard";
 import { ProjectDataResponse } from "@/app/types/Types";
 import getProjects from "@/app/utls/actions/getData/getProjects";
 import type { Metadata } from 'next'
+import ProjectCardhome from "../PojectRouteCards/ProjectCard";
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -31,7 +31,7 @@ const Projects = async () => {
                 {
                   projects?.data?.length > 0 ? (
                     projects?.data?.map(project => (
-                      <ProjectCard key={project._id} project={project} />
+                      <ProjectCardhome key={project._id} project={project} />
                     ))
                   ) : <div>No Projects Added Yet</div>
                 }

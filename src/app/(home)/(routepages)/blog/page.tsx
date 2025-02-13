@@ -1,7 +1,7 @@
-import BlogCard from '@/app/dashboard/components/BlogCard'
 import { BlogsDataResponse } from '@/app/types/Types';
 import getBlogs from '@/app/utls/actions/getData/getBlogs';
 import type { Metadata } from 'next'
+import BlogCardhome from '../PojectRouteCards/BlogCard';
 
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ const Blogs = async () => {
                 {
                   blogs?.data?.length > 0 ? (
                     blogs?.data?.map(blog => (
-                      <BlogCard key={blog._id} blog={blog} />
+                      <BlogCardhome key={blog._id} blog={blog} />
                     ))
                   ) : <div>No Projects Added Yet</div>
                 }
