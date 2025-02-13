@@ -1,5 +1,7 @@
 "use server"
 
+import { redirect } from "next/navigation";
+
 
 const deleteBlogs = async (id: string) => {   
     
@@ -7,8 +9,8 @@ const deleteBlogs = async (id: string) => {
         method: "DELETE",
     });
 
-    if (!res.ok) {
-        throw new Error("Failed to delete blogs");
+    if (res.ok) {
+        redirect('/dashboard/blogs');
     }
 
 };

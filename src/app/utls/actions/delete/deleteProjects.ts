@@ -1,5 +1,7 @@
 "use server"
 
+import { redirect } from "next/navigation";
+
 
 const deleteProject = async (id: string) => {   
     
@@ -8,7 +10,7 @@ const deleteProject = async (id: string) => {
     });
 
     if (res.ok) {
-        throw new Error("Failed to delete projects");
+        redirect('/dashboard/projects');
     }
 
 };
