@@ -27,7 +27,7 @@ const Blogs = async () => {
               <p className="font-serif text-gray-500">Total Project : {blogs?.data?.length}</p>
             </div>
 
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 mb-20">
                 {
                   blogs?.data?.length > 0 ? (
                     blogs?.data?.map(blog => (

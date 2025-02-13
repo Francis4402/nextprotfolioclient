@@ -24,7 +24,7 @@ export async function generateMetadata({ params } : { params: Promise<{id: strin
 
 const BlogDetails = async ({params} : {params: Promise<{id: string}>})=> {
 
-    const {id} = await params;
+  const {id} = await params;
     
 
   const res = await fetch(`${process.env.BACKEND_URL}/blogs/${id}`, {
