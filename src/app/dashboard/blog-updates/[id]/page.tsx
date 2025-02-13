@@ -48,7 +48,7 @@ const BlogDetails = async ({params}: {params: Promise<{id: string}>}) => {
         <h2 className="text-2xl font-semibold text-center mb-6">Update Blogs</h2>
         <Form action={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="title" className="block text-sm font-medium text-gray-200">
               Title
             </label>
             <input
@@ -62,7 +62,7 @@ const BlogDetails = async ({params}: {params: Promise<{id: string}>}) => {
           </div>
 
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="description" className="block text-sm font-medium text-gray-200">
               Description
             </label>
             <textarea
@@ -77,7 +77,7 @@ const BlogDetails = async ({params}: {params: Promise<{id: string}>}) => {
 
           
           <div>
-            <label htmlFor="projectImages" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="projectImages" className="block text-sm font-medium text-gray-200">
               Project Image URL
             </label>
             <input
