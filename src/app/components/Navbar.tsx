@@ -95,7 +95,7 @@ const Navbar = ({session}: {session: any}) => {
                                             </Link>
                                         </MenuItem>
                                         <MenuItem>
-                                            <Link href={"/contact"} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                            <Link href={"/contact"} className="group md:hidden flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
                                                 Contact Me
                                             </Link>
                                         </MenuItem>
