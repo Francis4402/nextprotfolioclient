@@ -4,14 +4,13 @@ import Hero from "../components/Hero";
 import Tech from "../components/Tech";
 import Works from "../components/worksection/Works";
 import Blogs from "../components/blogsection/Blogs";
-import Footer from "../components/Footer";
 
 
 export default async function Home() {
 
 
   return (
-    <div className="bg-gray-950 text-white">
+    <div className="bg-gray-950">
       <div className="container mx-auto md:px-0 px-5">
         <Hero/>
         <About/>
@@ -20,7 +19,6 @@ export default async function Home() {
         <Works/>
         <Blogs/>
       </div>
-      <Footer/>
     </div>
   );
 }

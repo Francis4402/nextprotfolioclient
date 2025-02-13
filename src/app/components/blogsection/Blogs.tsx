@@ -18,7 +18,7 @@ const Blogs = async () => {
                         <div className="container">
                         <BlogTextSection/>
 
-                        <div className="mt-20 flex flex-wrap gap-7 lg:justify-start justify-center cursor-default">
+                        <div className="py-20 flex flex-wrap gap-7 lg:justify-start justify-center cursor-default">
                             {blogs?.data?.map((blog, index) => (
                                 <BlogCardSection key={blog._id} index={index} blog={blog} />
                             ))}

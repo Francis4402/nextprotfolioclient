@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utls/authOptions";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default async function RootLayout({
         <Navbar session={session} />
         <Toaster position="top-right" />
         {children}
+        <Footer/>
       </body>
     </html>
   );
