@@ -12,7 +12,7 @@ import {motion} from "framer-motion";
 
 const Navbar = ({session}: {session: any}) => {
 
-    const PDFFileURL = 'http://localhost:3000/functionalsample.pdf'
+    const PDFFileURL = 'https://nextprotfolioclient.vercel.app/functionalsample.pdf'
 
     const [isOpen, setIsOpen] = useState(false);
 
