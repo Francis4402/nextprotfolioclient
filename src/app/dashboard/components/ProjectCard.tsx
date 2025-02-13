@@ -38,7 +38,10 @@ const ProjectCard = ({project}: {project: TProject}) => {
 
 
       <div className="p-5">
-        <h3 className="text-xl font-bold">{project.title}</h3>
+        <div className="flex justify-between">
+          <h3 className="text-xl font-bold">{project.title}</h3>
+          <button onClick={() => window.open(project.links, "_blank")} className="text-sm bg-blue-400 px-4 rounded-lg text-white hover: scale-105 hover:bg-blue-600 duration-150">Link</button>
+        </div>
         <p className="mt-2 text-gray-600 text-sm">{project.description}</p>
 
         <p className="mt-2 text-gray-600 text-sm text-end">{project.tags}</p>

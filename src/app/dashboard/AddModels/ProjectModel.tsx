@@ -52,6 +52,11 @@ const ProjectModel = () => {
                 </div>
 
                 <div>
+                    <p className="text-sm/6 font-medium text-white">Links</p>
+                    <input type='text' name='links' placeholder='Project Link' className='mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white' />
+                </div>
+
+                <div>
                     <p className="text-sm/6 font-medium text-white">Description</p>
                     <textarea rows={4} name='description' placeholder='Enter Project Description' className='mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white' />
                 </div>

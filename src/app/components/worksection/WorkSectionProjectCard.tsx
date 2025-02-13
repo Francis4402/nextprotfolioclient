@@ -17,7 +17,7 @@ const WorkSectionProjectCard = ({project, index}: {project: any, index: any}) =>
     const router = useRouter();
 
     const handleProjectDetials = () => {
-        router.push(`/project/${project._id}`);
+        router.push(`/projects/${project._id}`);
     }
 
     useEffect(() => {
@@ -68,11 +68,14 @@ const WorkSectionProjectCard = ({project, index}: {project: any, index: any}) =>
         </div>
 
         <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{project.title}</h3>
+          <div className="flex justify-between items-center">
+            <h3 className='text-white font-bold text-[24px]'>{project.title}</h3>
+            <button onClick={() => window.open(project.links, "_blank")} className="text-sm bg-blue-400 px-4 rounded-lg text-white hover: scale-105 hover:bg-blue-600 duration-150">Link</button>            
+          </div>
           <p className='mt-2 text-secondary text-[14px]'>{project.description}</p>
         </div>
 
-        <div className='mt-4 flex flex-wrap gap-2'>
+        <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-center'>
           {project.tags}
         </div>
       </Tilt>

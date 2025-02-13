@@ -1,6 +1,7 @@
 export type TProject = {
     _id: string;
     title: string;
+    links: string;
     description: string;
     projectImages: string;
     tags: string;
