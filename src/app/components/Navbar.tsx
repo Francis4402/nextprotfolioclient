@@ -47,11 +47,16 @@ const Navbar = ({session}: {session: any}) => {
                     </p>
                 </Link>
 
-                <div className='flex justify-center items-center text-center gap-10 capitalize list-none'>
+                <div className='flex justify-center items-center text-center md:gap-10 gap-4 capitalize list-none'>
                     <div className="md:flex gap-10 hidden">
                         <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
                         <Link href={'/blog'} className="flex items-center gap-2">Blogs</Link>
-                        <motion.button onClick={() => handeDownload(PDFFileURL)} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}} transition={{type:"spring", stiffness: 200, damping: 7}} className="bg-orange-600 px-5 py-2 rounded-xl hover:bg-orange-700">Download CV</motion.button>
+                        <Link href={'/contact'} className="flex items-center gap-2">Contact Me</Link>
+                        {session ? (<motion.button onClick={() => handeDownload(PDFFileURL)} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}} transition={{type:"spring", stiffness: 200, damping: 7}} className="bg-orange-600 lg:block hidden px-5 py-2 rounded-xl hover:bg-orange-700">Download CV</motion.button>) : ""}
+                    </div>
+                    <div className="flex gap-2 md:hidden">
+                        <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
+                        <Link href={'/blog'} className="flex items-center gap-2">Blogs</Link>
                     </div>
                     {
                         session ? (
@@ -96,20 +101,26 @@ const Navbar = ({session}: {session: any}) => {
                                         </MenuItem>
                                         <div className="my-1 h-px bg-white/5 md:hidden block" />
                                         <MenuItem>
-                                            <button onClick={() => handeDownload(PDFFileURL)} className="group md:hidden flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                            <button onClick={() => handeDownload(PDFFileURL)} className="group lg:hidden flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
                                                 Download CV
                                             </button>
                                         </MenuItem>
                                             <div className="my-1 h-px bg-white/5" />
                                         <MenuItem>
-                                            <button onClick={() => signOut()} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
-                                                Logout
-                                            </button>
+                                            {
+                                                session ? (
+                                                    <button onClick={open} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                        Login
+                                                    </button>
+                                                ) : <button onClick={() => signOut()} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                        Logout
+                                                    </button>
+                                            }
                                         </MenuItem>
                                     </MenuItems>
                                 </Menu>
                             </>
-                            ) : <Button onClick={open} className="rounded-md bg-black/20 py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-white">
+                            ) : <Button onClick={open} className="rounded-md bg-blue-600 py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-blue-800 duration-200 data-[focus]:outline-1 data-[focus]:outline-white">
                             Login
                         </Button> 
                     }
@@ -117,32 +128,33 @@ const Navbar = ({session}: {session: any}) => {
                 </div>
             </div>
 
-            <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
-                <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                <div className="flex min-h-full items-center justify-center p-4">
+            <Dialog open={isOpen} as="div" className="relative z-50" onClose={close}>
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-md" />
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                     <DialogPanel
                     transition
-                    className="w-full max-w-sm rounded-xl bg-white/20 p-6 backdrop-blur-3xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+                    className="w-full max-w-sm rounded-xl bg-white/80 dark:bg-gray-900/80 shadow-xl p-6 backdrop-blur-xl duration-300 ease-out transform data-[closed]:scale-95 data-[closed]:opacity-0"
                     >
-                    <DialogTitle as="h3" className="text-base/7 font-medium text-white text-center">
+                    <DialogTitle as="h3" className="text-lg font-semibold text-gray-900 dark:text-white text-center">
                         Please Login
                     </DialogTitle>
-                    <div className="flex justify-center items-center gap-5 my-5">
-                        <div className="bg-gray-200 hover:bg-gray-500 duration-200 rounded-full w-fit p-2" onClick={() => signIn("github", {
-                        callbackUrl: "http://localhost:3000/dashboard"
-                        })}>
-                        <FaGithub size={40} color="black"/>
-                        </div>
 
-                        <div className="bg-gray-200 hover:bg-gray-500 duration-200 rounded-full w-fit p-2" onClick={() => signIn("google", {
-                        callbackUrl: "http://localhost:3000/dashboard"
-                        })}>
-                        <FaGoogle size={40} color="black"/>
-                        </div>
+                    <div className="flex justify-center items-center gap-6 my-6">
+                        <button
+                        className="flex items-center justify-center bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 duration-200 rounded-full p-3 transition"
+                        onClick={() => signIn("github", { callbackUrl: "http://localhost:3000/dashboard" })}
+                        >
+                        <FaGithub size={32} className="text-gray-900 dark:text-white" />
+                        </button>
+
+                        <button
+                        className="flex items-center justify-center bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 duration-200 rounded-full p-3 transition"
+                        onClick={() => signIn("google", { callbackUrl: "http://localhost:3000/dashboard" })}
+                        >
+                        <FaGoogle size={32} className="text-gray-900 dark:text-white" />
+                        </button>
                     </div>
-                    
                     </DialogPanel>
-                </div>
                 </div>
             </Dialog>
         </div>
