@@ -1,5 +1,6 @@
 "use server"
 
+import { redirect } from "next/navigation";
 
 const deleteMessages = async (id: string) => {   
     
@@ -8,7 +9,7 @@ const deleteMessages = async (id: string) => {
     });
 
     if (res.ok) {
-        throw new Error("Failed to delete messages");
+        redirect('/dashboard/messages');
     }
 
 };

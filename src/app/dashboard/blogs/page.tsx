@@ -21,7 +21,7 @@ const Blogs = async () => {
         <div className="container mx-auto flex flex-col gap-10 p-6 md:p-12">
 
             <div className="flex justify-between items-center border-b pb-4">
-                <h1 className="text-3xl font-bold text-gray-800">All Blogs</h1>
+                <h1 className="text-3xl font-bold text-white">All Blogs</h1>
                 <BlogModel />
             </div>
     

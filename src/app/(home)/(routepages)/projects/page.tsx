@@ -1,4 +1,3 @@
-
 import { ProjectDataResponse } from "@/app/types/Types";
 import getProjects from "@/app/utls/actions/getData/getProjects";
 import type { Metadata } from 'next'
@@ -10,30 +9,28 @@ export const metadata: Metadata = {
 }
 
 const Projects = async () => {
-
   const projects: ProjectDataResponse = await getProjects();
 
-
   return (
-      <div>
+      <div className="bg-gray-950 text-gray-200 min-h-screen">
         <div className="lg:h-[400px] md:h-[200px] w-full bg-[url('/bgimages.jpg')] bg-cover bg-center bg-no-repeat">
-          <div className="text-white lg:h-[400px] h-[200px] bg-black/40 flex flex-col gap-5 justify-center items-center">
-              <h1  className="md:text-4xl text-2xl font-serif">My Projects</h1>
+          <div className="text-white lg:h-[400px] h-[200px] bg-black/50 flex flex-col gap-5 justify-center items-center">
+              <h1 className="md:text-4xl text-2xl font-serif">My Projects</h1>
           </div>
         </div>
 
         <div className="container max-w-7xl mx-auto justify-center items-center lg:px-0 px-5">
             <div className="my-20">
-              <p className="font-serif text-gray-500">Total Project : {projects?.data?.length}</p>
+              <p className="font-serif text-gray-400">Total Projects: {projects?.data?.length}</p>
             </div>
 
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 mb-20">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-20">
                 {
                   projects?.data?.length > 0 ? (
                     projects?.data?.map(project => (
                       <ProjectCardhome key={project._id} project={project} />
                     ))
-                  ) : <div>No Projects Added Yet</div>
+                  ) : <div className="text-gray-400">No Projects Added Yet</div>
                 }
             </div>
         </div>
@@ -41,4 +38,4 @@ const Projects = async () => {
   )
 }
 
-export default Projects
+export default Projects;

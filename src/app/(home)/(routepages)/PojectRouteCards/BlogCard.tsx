@@ -11,7 +11,7 @@ const BlogCardhome = ({ blog }: { blog: TBlog }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-2xl overflow-hidden transition-all hover:shadow-lg">
+    <div className="bg-gray-900 shadow-md rounded-2xl overflow-hidden transition-all hover:shadow-lg">
       {/* Image */}
       <div className="relative w-full aspect-[16/9] cursor-pointer" onClick={handleBlogDetails}>
         <Image
@@ -25,8 +25,8 @@ const BlogCardhome = ({ blog }: { blog: TBlog }) => {
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-xl font-bold">{blog.title}</h3>
-        <p className="mt-2 text-gray-600 text-sm">{blog.description}</p>
+        <h3 className="text-xl font-bold text-white">{blog.title}</h3>
+        <p className="mt-2 text-gray-400 text-sm">{blog.description}</p>
         
       </div>
     </div>

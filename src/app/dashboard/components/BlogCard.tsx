@@ -20,32 +20,30 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-2xl overflow-hidden transition-all hover:shadow-lg">
-      {/* Image */}
+    <div className="bg-gray-900 shadow-md rounded-2xl overflow-hidden transition-all hover:shadow-lg flex flex-col">
       <div className="relative w-full aspect-[16/9] cursor-pointer" onClick={handleBlogDetails}>
         <Image
           width={500}
           height={300}
           src={blog.blogImages}
-          alt="Blog Cover"
+          alt="Project Cover"
           className="w-full h-full object-cover"
         />
       </div>
 
-      {/* Content */}
-      <div className="p-5">
-        <h3 className="text-xl font-bold">{blog.title}</h3>
-        <p className="mt-2 text-gray-600 text-sm">{blog.description}</p>
-        
-        {/* Buttons */}
-        <div className="flex justify-between items-center mt-4">
+      <div className="p-5 flex flex-col flex-grow">
+        <h3 className="text-xl font-bold text-gray-200">{blog.title}</h3>
+        <p className="mt-2 text-gray-300 text-sm">{blog.description}</p>
+
+        {/* Keep buttons at the bottom */}
+        <div className="flex justify-between items-center mt-auto pt-4">
           <button
             onClick={handleUpdateId}
             className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
           >
             Update
           </button>
-          
+
           <button
             onClick={handleDelete}
             className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
