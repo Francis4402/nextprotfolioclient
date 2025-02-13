@@ -1,13 +1,13 @@
 "use client"
 
 import { StaticImageData } from 'next/image';
-import 'react-vertical-timeline-component/style.min.css';
-import {motion} from "framer-motion";
-import { textVariant } from '../utls/motion';
 import { styles } from '../styes/styles';
 import { experiences } from '../constants';
 import ExperienceCard from './ExperienceCard';
 import { VerticalTimeline } from 'react-vertical-timeline-component';
+import gsap from 'gsap';
+import { useEffect } from 'react';
+
 
 
 interface Experience {
@@ -19,16 +19,30 @@ interface Experience {
 
 const Experience = () => {
 
+    useEffect(() => {
+        gsap.fromTo(
+            ".experience-text",
+            { opacity: 0, y: -50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: 0.5,
+                
+            }
+        );
+    }, []);
+
   return (
     <>
-        <motion.div variants={textVariant(0)} className='mt-36'>
-            <p className={`${styles.sectionSubText} text-center`}>
+        <div className='mt-36'>
+            <p className={`${styles.sectionSubText} text-center experience-text`} >
                 What I have done so far
             </p>
-            <h2 className={`${styles.sectionHeadText} text-center`}>
+            <h2 className={`${styles.sectionHeadText} text-center experience-text`}>
                 Work Experience.
             </h2>
-        </motion.div>
+        </div>
 
         <div className='mt-20 flex flex-col'>
             <VerticalTimeline>

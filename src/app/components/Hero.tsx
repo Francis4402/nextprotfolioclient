@@ -10,10 +10,10 @@ const Hero = () => {
     useEffect(() => {
         gsap.fromTo(
             ".hero-text",
-            { opacity: 0, x: -50 },
+            { opacity: 0, y: -50 },
             {
                 opacity: 1,
-                x: 0,
+                y: 0,
                 duration: 1,
                 delay: 0.5,
                 
@@ -22,10 +22,10 @@ const Hero = () => {
 
         gsap.fromTo(
             ".img",
-            { opacity: 0, x: 50 },
+            { opacity: 0, y: 50 },
             {
                 opacity: 1,
-                x: 0,
+                y: 0,
                 duration: 1,
                 delay: 0.5,
             }
@@ -33,12 +33,12 @@ const Hero = () => {
     }, []);
 
   return (
-    <section className="relative w-full mx-auto">
+    <section className="relative w-full">
         <div className={`relative inset-0 sm:top-[120px] top-10 mx-auto ${styles.paddingX} lg:flex flex-row grid items-start gap-5`}>
             <div className="flex gap-8">
                 <div className='flex flex-col justify-center items-center mt-5'>
                     <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-                    <div className='w-1 lg:h-80 sm:h-52 h-40 violet-gradient' />
+                    <div className='w-1 lg:h-80 h-52 violet-gradient' />
                 </div>
                 <div className={"hero-text"}>
                     <h1 className={`${styles.heroHeadText} text-white`}>Hi, I am <span className='text-[#915EFF]'>Francis</span></h1>

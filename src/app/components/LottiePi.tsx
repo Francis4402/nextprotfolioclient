@@ -4,7 +4,7 @@ import animationData from "../assets/animation/Animation - 1698684113653.json";
 const LottiePi = () => {
   return (
     <div>
-        <Player autoplay loop src={animationData} style={{ height: '100%', width: '100%' }}>
+        <Player autoplay loop src={animationData} style={{ height: '100%', width: '50%' }}>
         </Player>
     </div>
   )

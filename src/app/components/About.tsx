@@ -35,7 +35,7 @@ const About = () => {
   useEffect(() => {
     gsap.fromTo(
       ".texts",
-      { opacity: 0, y: -50 },
+      { opacity: 0, y: 50 },
       {
         opacity: 1,
         y: 0,
@@ -52,10 +52,10 @@ const About = () => {
       if (el) {
         gsap.fromTo(
           el,
-          { opacity: 0, x: -100 },
+          { opacity: 0, y: 50 },
           {
             opacity: 1,
-            x: 0,
+            y: 0,
             duration: 1,
             delay: index * 0.2,
             scrollTrigger: {
@@ -79,10 +79,10 @@ const About = () => {
         I&#39;m a skilled Full Stack Web Developer and expertise in frameworks like Laravel, MySql, React, Node.js, Express, Next.js and MongoDB. I&#39;m a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let&#39;s work together to bring your ideas to life!
       </p>
 
-      <div className="mt-20 flex flex-wrap gap-10 md:justify-center">
+      <div className="mt-20 flex flex-wrap gap-10 justify-center">
         {cards.map((card, index) => (
           <Tilt key={index}>
-            <div ref={el => { cardsRef.current[index] = el; }} className='xs:w-[250px] w-full md:w-[300px] lg:w-[350px]'>
+            <div ref={el => { cardsRef.current[index] = el; }} className='w-[250px] sm:w-[280px] md:w-[300px] lg:w-[350px] max-w-[350px]'>
                 <div className={`w-full bg-gradient-to-r from-emerald-400 to-cyan-400 p-[1px] rounded-[20px] shadow-card`}>
                 <div className='bg-gray-900 rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'>
                     <Image src={card.icon} alt="i" width={50} height={50} />

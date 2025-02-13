@@ -23,11 +23,11 @@ const RoundImages = ({tec, index}: any) => {
             `.round-image-${index}`,
             {
                 opacity: 0,
-                x: 100 ,
+                y: 100 ,
             },
             {
                 opacity: 1,
-                x: 0,
+                y: 0,
                 duration: 1,
                 delay: index * 0.1,
             }

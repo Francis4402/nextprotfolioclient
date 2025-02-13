@@ -7,9 +7,12 @@ import { Button, Dialog, DialogPanel, DialogTitle, Menu, MenuButton, MenuItem, M
 import { signIn, signOut } from "next-auth/react"
 import { useState } from "react"
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import {motion} from "framer-motion";
 
 
 const Navbar = ({session}: {session: any}) => {
+
+    const PDFFileURL = 'http://localhost:3000/functionalsample.pdf'
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -21,10 +24,19 @@ const Navbar = ({session}: {session: any}) => {
         setIsOpen(false);
     }
     
+    const handeDownload = (url: any) => {
+        const filename = url.split('/').pop();
+          const aTag = document.createElement('a')
+          aTag.href = url
+          aTag.setAttribute('download', filename)
+        document.body.appendChild(aTag)
+        aTag.click()
+        aTag.remove();
+      }
     
 
   return (
-    <div className="justify-center flex">
+    <div className="justify-center flex bg-gray-950 text-white">
         <div className="container">
             <div className="justify-between flex items-center md:text-lg text-white text-base md:py-10 py-6 md:px-0 px-5">
                 <Link href={'/'} className="flex items-center gap-2">
@@ -35,8 +47,12 @@ const Navbar = ({session}: {session: any}) => {
                     </p>
                 </Link>
 
-                <div className='md:flex hidden justify-center items-center text-center gap-10 capitalize list-none'>
-
+                <div className='flex justify-center items-center text-center gap-10 capitalize list-none'>
+                    <div className="md:flex gap-10 hidden">
+                        <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
+                        <Link href={'/blog'} className="flex items-center gap-2">Blogs</Link>
+                        <motion.button onClick={() => handeDownload(PDFFileURL)} whileHover={{scale: 1.1}} whileTap={{scale: 0.9}} transition={{type:"spring", stiffness: 200, damping: 7}} className="bg-orange-600 px-5 py-2 rounded-xl hover:bg-orange-700">Download CV</motion.button>
+                    </div>
                     {
                         session ? (
                             <>
@@ -45,7 +61,7 @@ const Navbar = ({session}: {session: any}) => {
                                         <Image src={session?.user?.image ? session?.user?.image : "/icons/mobile.png"} alt="i" width={50} height={50} className="rounded-full" />
                                     </MenuButton>
 
-                                    <MenuItems transition anchor="bottom end" className="w-fit origin-top-right rounded-xl border border-white/5 bg-white/5 p-1 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
+                                    <MenuItems transition anchor="bottom end" className="w-fit origin-top-right rounded-xl border border-white/5 bg-gray-950 p-1 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
                                         <MenuItem>
                                             <Link href={"/dashboard"} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
                                                 Dashboard
@@ -57,11 +73,34 @@ const Navbar = ({session}: {session: any}) => {
                                             </div>
                                         </MenuItem>
                                         <MenuItem>
-                                            <div className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
-                                                {session?.user?.email}
-                                            </div>
+                                            {session?.user?.bio ? <div className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                {session?.user?.bio}
+                                            </div>: <div>
+                                                    
+                                                </div>}
                                         </MenuItem>
-                                        <div className="my-1 h-px bg-white/5" />
+                                        <MenuItem>
+                                            <Link href={"/projects"} className="group md:hidden flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                Project
+                                            </Link>
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <Link href={"/blog"} className="group md:hidden flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                Blogs
+                                            </Link>
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <Link href={"/contact"} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                Contact Me
+                                            </Link>
+                                        </MenuItem>
+                                        <div className="my-1 h-px bg-white/5 md:hidden block" />
+                                        <MenuItem>
+                                            <button onClick={() => handeDownload(PDFFileURL)} className="group md:hidden flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                Download CV
+                                            </button>
+                                        </MenuItem>
+                                            <div className="my-1 h-px bg-white/5" />
                                         <MenuItem>
                                             <button onClick={() => signOut()} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
                                                 Logout
