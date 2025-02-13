@@ -109,11 +109,11 @@ const Navbar = ({session}: {session: any}) => {
                                         <MenuItem>
                                             {
                                                 session ? (
-                                                    <button onClick={open} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
-                                                        Login
-                                                    </button>
-                                                ) : <button onClick={() => signOut()} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                    <button onClick={() => signOut()} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
                                                         Logout
+                                                    </button>
+                                                ) : <button onClick={open} className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                        Login
                                                     </button>
                                             }
                                         </MenuItem>
