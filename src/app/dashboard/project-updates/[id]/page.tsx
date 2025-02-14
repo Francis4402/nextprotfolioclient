@@ -43,7 +43,7 @@ const ProjectUpdate = async ({params}: {params: Promise<{id: string}>}) => {
   
 
   return (
-    <div className="flex flex-1 flex-col justify-center items-center p-6">
+    <div className="flex flex-1 flex-col justify-center items-center min-h-screen p-6">
       <div className="w-full max-w-lg bg-gray-900 shadow-lg rounded-lg p-8">
         <h2 className="text-2xl font-semibold text-center mb-6">Update Project</h2>
         <Form action={handleSubmit} className="space-y-6">
