@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Screenshots
 
-First, run the development server:
+![App Screenshot](https://res.cloudinary.com/dse9babc4/image/upload/v1739534650/Francis_Portfolio_-_Google_Chrome_2_14_2025_5_03_59_PM_eqbprr.png)
+
+
+# Book-Shop-Api
+
+### Project Api Link
+
+Vecel-live-link : https://nextprotfolioclient.vercel.app/
+
+server-vercel-link : https://nextportfolioserver.vercel.app/
+
+## To Start the Project
+
+Download the project.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+run cmd before running the project : npm install
+
 ```
+```bash
+setup the .env 
 
-Open [https://nextprotfolioclient.vercel.app](https://nextprotfolioclient.vercel.app) with your browser to see the result.
+GITHUB_ID = gitbub OAuthId
+GITHUB_SECRET = github secret key
+GOOGLE_ID = google Api & Services key from google cloud platform
+GOOGLE_SECRET = google secret key
+NEXTAUTH_SECRET = add any generated codes
+BACKEND_URL = add backend url
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Description
 
-## Learn More
+This Project about portfolio for website developers. Showing their projects and skills and for apply for job. In this project there is project pages for viewing the project and has blog route for blogs. Authentication System, Admin dashboard and contact page for contact. Dashboard Route is secure you cannot access the dashboard unless you are logged in that goes for contact page as well. You can sign in with google and also with github. Website is responsive for mobile as well.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Client:** Next JS, Typescript, gsap, framer motion, TailwindCSS
 
-## Deploy on Vercel
+**Server:** Node, Express, Typescript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- Authenticastion
+- Adding Project and blogs
+- Updating Project Delete Project
+- Secure Routes
+
